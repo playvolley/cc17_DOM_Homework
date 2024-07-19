@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clear List Example</title>
+  </head>
+  <body>
+    <ol id="elem">
+      <li>Hello</li>
+      <li>World</li>
+    </ol>
+    <button id="clearButton">Clear</button>
+    <script>
+      function clear(elem) {
+        while (elem.firstChild) {
+          elem.removeChild(elem.firstChild);
+        }
+      }
+
+      const elem = document.getElementById("elem");
+      const clearButton = document.getElementById("clearButton");
+
+      clearButton.addEventListener("click", () => {
+        clear(elem);
+      });
+    </script>
+  </body>
+</html>

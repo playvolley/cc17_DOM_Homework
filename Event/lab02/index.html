@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <label>This is Form</label>
+    <input type="submit" />
+  </form>
+  <script>
+    const submit = document.querySelector('input')
+    function buttonx(event){
+      alert("Form is submitted")
+    }
+    submit.addEventListener('click', buttonx)
+    //submit.addEventListener('cancel',buttonx)
+    submit.removeEventListener('click', buttonx)
+    
+  </script>
+</body>
+</html>

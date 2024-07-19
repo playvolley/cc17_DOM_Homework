@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    
+  </ul>
+  <script>
+    const ul =  document.createElement('ul'); // create tag ul
+    let text = prompt("Enter Something") //string | null
+    while(!(text === null || text.trim() === '')){
+      const li = document.createElement('li')
+      li.textContent = text; // <li> user input </li>
+      ul.append(li) // <ul>...  <li> user input </li>   ..... </ul>
+      text = prompt("Enter Something")
+    }
+    document.body.prepend(ul)
+  </script>
+</body>
+</html>

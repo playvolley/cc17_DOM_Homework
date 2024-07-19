@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input name="nickname" />
+  <input name="job" />
+  <script>
+    function taskTodo1(event){
+      console.log(event.target.name)
+    }
+    function taskTodo2(event){
+      console.log(event.target.value)
+    }
+    const input1 = document.querySelector('input')
+    const input2 = document.querySelector('input').nextElementSibling
+    input1.addEventListener('click',taskTodo1)
+    input1.addEventListener('keyup',taskTodo2)
+    //const input2 = document.querySelector('input').nextElementSibling
+    input2.addEventListener('click',taskTodo1)
+    input2.addEventListener('keyup',taskTodo2)
+  </script>
+</body>
+</html>

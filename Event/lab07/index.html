@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>
+    Click to hide text
+  </button>
+  <h1>Text</h1>
+  <script>
+    const button = document.querySelector('button')
+    const h1Element = document.querySelector('h1');
+    //alert(h1Element)
+    button.addEventListener('click',function(){
+    //button.style.visibility = 'hidden';
+      h1Element.style.visibility = 'hidden';
+    })
+  </script>
+</body>
+</html>

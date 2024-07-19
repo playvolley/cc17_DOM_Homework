@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Province and District Selector</title>
+  </head>
+  <body>
+    <div>
+      <label for="province">Province:</label>
+      <select id="province" onchange="updateDistricts()">
+        <option value="">Select</option>
+      </select>
+    </div>
+    <div>
+      <label for="district">District:</label>
+      <select id="district">
+        <option value="">Select</option>
+      </select>
+    </div>
+
+    <script>
+      const provinces = {
+        Bangkok: [
+          "Bang Kapi",
+          "Bang Khen",
+          "Bang Kho Laem",
+          "Bang Na",
+          "Bang Phlat",
+          "Bang Rak",
+          "Bang Sue",
+          "Bangbon",
+          "Bangkhae",
+          "Bangkok Noi",
+          "Bangkok Yai",
+          "Bueng Kum",
+          "Chatuchak",
+          "Chom Thong",
+          "Din Daeng",
+          "Don Mueang",
+          "Dusit",
+          "Huai Khwang",
+          "Khan Na Yao",
+          "Khlong Sam Wa",
+          "Khlong San",
+          "Khlong Toei",
+          "Lak Si",
+          "Lat Krabang",
+          "Lat Phrao",
+          "Min Buri",
+          "Nong Chok",
+          "Nong Khaem",
+          "Pathum Wan",
+          "Phasi Charoen",
+          "Phaya Thai",
+          "Phra Khanong",
+          "Phra Nakhon",
+          "Pom Prap Sattru Phai",
+          "Prawet",
+          "Rat Burana",
+          "Ratchathewi",
+          "Sai Mai",
+          "Samphanthawong",
+          "Saphan Sung",
+          "Sathon",
+          "Suan Luang",
+          "Taling Chan",
+          "Thawi Watthana",
+          "Thon Buri",
+          "Thong Lor",
+          "Wang Thonglang",
+          "Watthana",
+          "Yan Nawa",
+        ],
+        ChiangMai: [
+          "Mueang Chiang Mai",
+          "Doi Saket",
+          "Hang Dong",
+          "Mae Rim",
+          "San Sai",
+        ],
+        Phuket: ["Mueang Phuket", "Kathu", "Thalang"],
+      };
+
+      const provinceSelect = document.getElementById("province");
+      const districtSelect = document.getElementById("district");
+
+      // Populate the province dropdown
+      for (let province in provinces) {
+        let option = document.createElement("option");
+        option.value = province;
+        option.textContent = province;
+        provinceSelect.appendChild(option);
+      }
+
+      function updateDistricts() {
+        // Clear the district dropdown
+        districtSelect.innerHTML = '<option value="">Select</option>';
+
+        // Get the selected province
+        const selectedProvince = provinceSelect.value;
+
+        // Populate the district dropdown based on the selected province
+        if (selectedProvince && provinces[selectedProvince]) {
+          provinces[selectedProvince].forEach((district) => {
+            let option = document.createElement("option");
+            option.value = district;
+            option.textContent = district;
+            districtSelect.appendChild(option);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

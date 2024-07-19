@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>
+    Hide
+  </button>
+  <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt maxime nostrum debitis repellat vel. Id,
+    officiis. Unde praesentium rerum, distinctio dicta inventore eos temporibus facilis eligendi exercitationem nobis
+    aspernatur dolores.<span>
+      <script>
+        let switchHide = 1;
+
+        function show(event){
+          spanEle.style.visibility = 'visible';
+          event.target.innerText = 'Hide'
+          switchHide = 1;
+        }
+        function hide(event){
+          spanEle.style.visibility = 'hidden';
+          event.target.innerText = 'Show'
+          switchHide = 0;
+          //console.log(event)
+        }
+
+        const button = document.querySelector('button')
+        const spanEle = document.querySelector('span')
+        button.addEventListener('click', function (event) {
+          if(switchHide===1){
+            hide(event)
+          }else{
+            show(event)
+          }
+
+        })
+
+        //console.log(button.)
+      </script>
+</body>
+
+</html>

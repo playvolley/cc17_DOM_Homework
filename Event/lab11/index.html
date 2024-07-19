@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="neg">-</button>
+    <span>1</span>
+    <button id="pos">+</button>
+    <button id="reset">Reset</button>
+    <script>
+      const neg = document.getElementById("neg");
+      const pos = document.getElementById("pos");
+      const count = document.querySelector("span");
+      const reset = document.getElementById("reset");
+
+      pos.addEventListener("click", function () {
+        const currentCount = +count.textContent;
+        let newCount = currentCount + 1;
+        count.textContent = newCount;
+      });
+
+      neg.addEventListener("click", function () {
+        const currentCount = +count.textContent;
+
+        if (currentCount > 1) {
+          let newCount = currentCount - 1;
+          count.textContent = newCount;
+        }
+      });
+
+      reset.addEventListener("click", function () {
+        count.textContent = 0;
+      });
+    </script>
+  </body>
+</html>

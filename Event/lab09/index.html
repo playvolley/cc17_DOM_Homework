@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Number Validation</title>
+    <style>
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+      .input-error {
+        border-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" id="phoneNumber" />
+      <button onclick="validatePhoneNumber()">Check</button>
+      <div id="error-message" class="error"></div>
+    </div>
+
+    <script>
+      function validatePhoneNumber() {
+        const phoneNumber = document.getElementById("phoneNumber").value;
+        const errorMessage = document.getElementById("error-message");
+        const phoneNumberInput = document.getElementById("phoneNumber");
+
+        // Clear previous error state
+        errorMessage.textContent = "";
+        phoneNumberInput.classList.remove("input-error");
+
+        if (!phoneNumber) {
+          errorMessage.textContent = "Phone number is required";
+          phoneNumberInput.classList.add("input-error");
+        } else if (isNaN(phoneNumber)) {
+          errorMessage.textContent = "Phone number is invalid";
+          phoneNumberInput.classList.add("input-error");
+        } else if (phoneNumber.length !== 10) {
+          errorMessage.textContent = "Invalid length";
+          phoneNumberInput.classList.add("input-error");
+        } else {
+          alert("Your number is valid");
+        }
+      }
+    </script>
+  </body>
+</html>

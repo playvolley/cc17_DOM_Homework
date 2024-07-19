@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: green;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      li span {
+        margin-right: 20px;
+      }
+      li button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="taskInput" placeholder="Enter a task" />
+      <button onclick="addTask()">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+
+    <script>
+      function addTask() {
+        const taskInput = document.getElementById("taskInput");
+        const taskText = taskInput.value.trim();
+
+        if (taskText === "") {
+          alert("Task cannot be empty");
+          return;
+        }
+
+        const li = document.createElement("li");
+        const textSpan = document.createElement("span");
+        textSpan.textContent = taskText;
+        textSpan.onclick = () => {
+          textSpan.classList.toggle("completed");
+        };
+
+        const editButton = document.createElement("button");
+        editButton.textContent = "Edit";
+        editButton.onclick = () => {
+          const newTaskText = prompt("Edit your task", textSpan.textContent);
+          if (newTaskText !== null) {
+            textSpan.textContent = newTaskText;
+          }
+        };
+
+        const delButton = document.createElement("button");
+        delButton.textContent = "Del";
+        delButton.onclick = () => {
+          li.remove();
+        };
+
+        li.appendChild(textSpan);
+        li.appendChild(editButton);
+        li.appendChild(delButton);
+
+        document.getElementById("taskList").appendChild(li);
+        taskInput.value = "";
+      }
+    </script>
+  </body>
+</html>
